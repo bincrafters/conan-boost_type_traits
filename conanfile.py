@@ -8,6 +8,9 @@ class BoostType_TraitsConan(ConanFile):
     description = "For a description of this library, please visit http://boost.org/type_traits "
     license = "www.boost.org/users/license.html"
     lib_short_names = ["type_traits"]
+    requires = "Boost.Config/1.64.0@bincrafters/testing", \
+                      "Boost.Core/1.64.0@bincrafters/testing", \
+                      "Boost.Static_Assert/1.64.0@bincrafters/testing"
 
     def source(self):
         for lib_short_name in self.lib_short_names:
