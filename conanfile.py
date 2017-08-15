@@ -15,5 +15,9 @@ class BoostType_TraitsConan(ConanFile):
                      .format(self.version, lib_short_name)) 
 
     def package(self):
-        include_dir = src=os.path.join(os.getcwd(), self.lib_short_name, "include")
-        self.copy(pattern="*", dst="", src=include_dir)
+        for lib_short_name in self.lib_short_names:
+            include_dir = os.path.join(lib_short_name, "include")
+            self.copy(pattern="*", dst="include", src=include_dir)		
+
+    def package_id(self):
+        self.info.header_only()
