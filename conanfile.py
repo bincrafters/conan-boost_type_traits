@@ -7,11 +7,12 @@ class BoostType_TraitsConan(ConanFile):
     source_url = "https://github.com/boostorg/type_traits"
     description = "For a description of this library, please visit http://boost.org/type_traits "
     license = "www.boost.org/users/license.html"
-    lib_short_name = "type_traits"
+    lib_short_names = ["type_traits"]
 
     def source(self):
-        self.run("git clone --depth=50 --branch=boost-{0} {1}.git"
-                 .format(self.version, self.source_url))
+        for lib_short_name in self.lib_short_names:
+            self.run("git clone --depth=50 --branch=boost-{0} https://github.com/boostorg/{1}.git"
+                     .format(self.version, lib_short_name)) 
 
     def package(self):
         include_dir = src=os.path.join(os.getcwd(), self.lib_short_name, "include")
