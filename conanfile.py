@@ -8,7 +8,8 @@ class BoostType_TraitsConan(ConanFile):
     name = "boost_type_traits"
     version = "1.66.0"
     url = "https://github.com/bincrafters/conan-boost_type_traits"
-
+    author = "Bincrafters <bincrafters@gmail.com>"
+    exports = ["LICENSE.md"]
     lib_short_names = ["type_traits"]
     is_header_only = True
 
